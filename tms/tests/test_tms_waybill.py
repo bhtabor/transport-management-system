@@ -165,23 +165,6 @@ class TestTmsWaybill(TransactionCase):
         amount = waybill._amount_to_text(1500.00, usd, partner_lang="es_USD")
         self.assertEqual(amount, 'ONE THOUSAND, FIVE HUNDRED USD 0/100 M.E.')
 
-    def test_90_tms_waybill_transportable_product(self):
-        waybill = self.create_waybill()
-        waybill.transportable_line_ids.transportable_id = (
-            self.transportable2.id)
-        waybill.transportable_line_ids._onchange_transportable_id()
-        waybill.customer_factor_ids.update({
-            'factor_type': 'volume',
-            'name': 'Volume',
-            'fixed_amount': 0.0,
-            'category': 'customer',
-            'factor': 100,
-            'range_start': 1,
-            'range_end': 200,
-        })
-        waybill._compute_transportable_product()
-        self.assertEqual(waybill.product_volume, 10)
-
     def test_100_tms_waybill_action_cancel(self):
         waybill = self.create_waybill()
         waybill.action_confirm()
