@@ -3,6 +3,8 @@
     <record id="tms_travel_01" model="tms.travel">
         <field name="state">draft</field>
         <field name="route_id" ref="tms_route_02"/>
+        <field name="distance_loaded">799.00</field>
+        <field name="distance_empty">400.00</field>
         <field name="unit_id" ref="tms_fleet_vehicle_01"/>
         <field name="employee_id" ref="tms_hr_employee_01"/>
         <field name="date" eval="datetime.now()"/>
@@ -14,6 +16,8 @@
      <record id="tms_travel_02" model="tms.travel">
         <field name="state">draft</field>
         <field name="route_id" ref="tms_route_02"/>
+        <field name="distance_loaded">799.00</field>
+        <field name="distance_empty">400.00</field>
         <field name="unit_id" ref="tms_fleet_vehicle_01"/>
         <field name="employee_id" ref="tms_hr_employee_01"/>
         <field name="date" eval="datetime.now()"/>
@@ -25,6 +29,8 @@
      <record id="tms_travel_03" model="tms.travel">
         <field name="state">draft</field>
         <field name="route_id" ref="tms_route_02"/>
+        <field name="distance_loaded">799.00</field>
+        <field name="distance_empty">400.00</field>
         <field name="unit_id" ref="tms_fleet_vehicle_01"/>
         <field name="employee_id" ref="tms_hr_employee_01"/>
         <field name="date" eval="datetime.now()"/>
@@ -37,6 +43,8 @@
         <field name="state">draft</field>
         <field name="unit_id" ref="tms_fleet_vehicle_05"/>
         <field name="route_id" ref="tms_route_02"/>
+        <field name="distance_loaded">799.00</field>
+        <field name="distance_empty">400.00</field>
         <field name="employee_id" ref="tms_hr_employee_02"/>
         <field name="date" eval="datetime.now()"/>
         <field name="date_start" eval="datetime.now()"/>
@@ -49,6 +57,8 @@
         <field name="employee_id" ref="tms_hr_employee_02"/>
         <field name="unit_id" ref="tms_fleet_vehicle_05"/>
         <field name="route_id" ref="tms_route_02"/>
+        <field name="distance_loaded">799.00</field>
+        <field name="distance_empty">400.00</field>
         <field name="date" eval="datetime.now()"/>
         <field name="date_start" eval="datetime.now()+timedelta(days=2)"/>
         <field name="date_end" eval="datetime.now()+timedelta(days=9)"/>
