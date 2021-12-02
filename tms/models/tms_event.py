@@ -20,28 +20,28 @@ class TmsEvent(models.Model):
     date = fields.Date(
         default=fields.Date.context_today,
         required=True,
-        states={'confirmed': [('readonly', True)],
+        states={'confirm': [('readonly', True)],
                 'cancel': [('readonly', True)]})
     notes = fields.Text(
-        states={'confirmed': [('readonly', True)],
+        states={'confirm': [('readonly', True)],
                 'cancel': [('readonly', True)]})
     travel_id = fields.Many2one(
         'tms.travel', 'Travel', index=True, required=True, readonly=False,
-        states={'confirmed': [('readonly', True)],
+        states={'confirm': [('readonly', True)],
                 'cancel': [('readonly', True)]}, ondelete='restrict')
     latitude = fields.Float(
-        states={'confirmed': [('readonly', True)],
+        states={'confirm': [('readonly', True)],
                 'cancel': [('readonly', True)]})
     longitude = fields.Float(
-        states={'confirmed': [('readonly', True)],
+        states={'confirm': [('readonly', True)],
                 'cancel': [('readonly', True)]})
     position_real = fields.Text(
         help="Position as GPS",
-        states={'confirmed': [('readonly', True)],
+        states={'confirm': [('readonly', True)],
                 'cancel': [('readonly', True)]})
     position_pi = fields.Text(
         string='Position P.I.', help="Position near a Point of Interest",
-        states={'confirmed': [('readonly', True)],
+        states={'confirm': [('readonly', True)],
                 'cancel': [('readonly', True)]})
 
     def action_confirm(self):
