@@ -79,7 +79,7 @@ class TmsFactor(models.Model):
 
     def get_amount(self, weight=0.0, distance=0.0, distance_real=0.0, qty=0.0,
                    volume=0.0, income=0.0, employee=False):
-        factor_list = {
+        range_based_factors_list = {
             'weight': weight,
             'distance': distance,
             'distance_real': distance_real,
@@ -99,12 +99,11 @@ class TmsFactor(models.Model):
                 amount += rec.get_driver_amount(
                     employee, rec.fixed_amount, amount)
             else:
-                for key, value in factor_list.items():
-                    if rec.factor_type == key:
-                        if rec.range_start <= value <= rec.range_end:
-                            amount += rec.factor * value
-                        elif not rec.range_start and not rec.range_end:
-                            amount += rec.factor * value
+                value = range_based_factors_list[rec.factor_type]
+                if rec.range_start <= value <= rec.range_end:
+                    amount += rec.factor * value
+                elif not rec.range_start and not rec.range_end:
+                    amount += rec.factor * value
                 # TODO: Add validation to check if values are in range
             if rec.mixed and rec.factor_type != 'travel':
                 amount += rec.fixed_amount
